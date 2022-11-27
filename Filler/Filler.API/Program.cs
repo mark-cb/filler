@@ -16,6 +16,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// secrets and keys to be stored in and retrieved from Azure Key Vault
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -6,9 +6,11 @@
 
         public Guid UserId { get; set; }
 
-        public string? FuelType { get; set; }
+        public FuelType FuelType { get; set; } 
 
         public double Litres { get; set; }
+        
+        DateTime FillTime { get; set; }
 
         public double Total { get; set; }
 
