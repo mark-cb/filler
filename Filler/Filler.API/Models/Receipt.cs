@@ -10,7 +10,7 @@
 
         public double Litres { get; set; }
         
-        DateTime FillTime { get; set; }
+        public DateTime FillTime { get; set; }
 
         public double Total { get; set; }
 
