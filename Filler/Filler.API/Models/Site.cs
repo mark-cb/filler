@@ -5,7 +5,7 @@ namespace Filler.API.Models
     public class Site
     {
         [JsonPropertyName("id")]
-        public string? Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [JsonPropertyName("name")]
         public string? Name { get; set; }

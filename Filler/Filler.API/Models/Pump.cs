@@ -2,7 +2,7 @@
 {
     public class Pump
     {
-        public string? Id { get; }
+        public Guid? Id { get; }
 
         public int Number { get; }
 
