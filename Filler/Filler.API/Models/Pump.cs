@@ -2,10 +2,13 @@
 {
     public class Pump
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int PumpId { get; set; }
 
         public int Number { get; set; }
 
-        public bool Locked { get; set; }
+        public bool UnLocked { get; set; }
+
+        
+        public Site PumpSite { get; set; }
     }
 }

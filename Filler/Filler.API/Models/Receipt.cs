@@ -2,9 +2,9 @@
 {
     public class Receipt
     {
-        public Guid Id { get; set; }
+        public  int ReceiptId { get; set; }
 
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         public FuelType FuelType { get; set; } 
 
@@ -12,7 +12,7 @@
         
         public DateTime FillTime { get; set; }
 
-        public double Total { get; set; }
+        public double Total { get; set; }              
 
     }
 }

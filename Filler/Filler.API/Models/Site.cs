@@ -4,8 +4,8 @@ namespace Filler.API.Models
 {
     public class Site
     {
-        [JsonPropertyName("id")]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        [JsonPropertyName("siteId")]
+        public int SiteId { get; set; }
 
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -22,7 +22,12 @@ namespace Filler.API.Models
         [JsonPropertyName("fuelServed")]
         public List<string> FuelServed => new List<string> { "Petrol", "Diesel" };
 
+        [JsonPropertyName("fuelCost")]
         public double FuelCost => 1.83;
+
+        public List<Pump> SitePumps { get; set; }
+
+        
     }
     
 }

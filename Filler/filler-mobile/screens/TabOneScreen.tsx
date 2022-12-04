@@ -1,16 +1,23 @@
 import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+
+
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+
+    // use safe area view to ensure the screen is visible accross devices
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Find Site</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
+
+    </SafeAreaView>
   );
 }
 
