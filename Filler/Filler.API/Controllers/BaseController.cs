@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Filler.API.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Filler.API.Controllers
 {
@@ -9,6 +10,11 @@ namespace Filler.API.Controllers
     /// [ServiceFilter(typeof(CustomHeaderFilterAttribute))] 
     public class BaseController : ControllerBase
     {
-        
+        protected readonly IFuelRepo _fuelRepo;
+
+        public BaseController(IFuelRepo fuelRepo)
+        {
+            _fuelRepo = fuelRepo;
+        }
     }
 }

@@ -1,0 +1,54 @@
+﻿using Filler.API.Models;
+using Filler.API.Models.Sites;
+using Filler.API.Repositories;
+using Filler.API.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
+namespace Filler.API.Repositories
+{
+    public class FuelRepo : IFuelRepo
+    {
+        private readonly FuelSiteContext db;
+
+        public FuelRepo(FuelSiteContext context)
+        {
+            db = context;
+        }
+
+        public async Task<Receipt> AddReceiptAsync(Receipt receipt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Pump> GetPumpAsync(int pumpId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<Pump>> GetPumpsAsync(int siteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Receipt> GetReceiptAsync(int receiptId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<Receipt>> GetReceiptsAsync(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Site> GetSiteAsync(int siteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<Site>> GetSitesAsync()
+        {
+            return await db.Sites.ToListAsync().ConfigureAwait(false);
+        }
+    }
+    
+}
