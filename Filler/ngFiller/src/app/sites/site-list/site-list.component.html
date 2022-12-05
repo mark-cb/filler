@@ -1,1 +1,8 @@
-<p>site-list works!</p>
+<H2>Sites</H2>
+
+<div *ngFor="let item of siteData">
+  <div>ID : {{item.siteId}}</div>
+  <div>Name : {{item.name}}</div>
+  <div># pumps : {{item.numberOfPumps}}</div>
+
+</div>

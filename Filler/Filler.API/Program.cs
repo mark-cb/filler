@@ -2,9 +2,12 @@ using Filler.API.Models.Sites;
 using Filler.API.Repositories;
 using Filler.API.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
+
+const string policyName = "open";
 
 // Add services to the container.
 
@@ -18,7 +21,12 @@ builder.Services.AddScoped<IFuelRepo, FuelRepo>();
 // adding db context connection string to come from config 
 builder.Services.AddDbContext<FuelSiteContext>(options => options.UseInMemoryDatabase("FuelDb"));
 
-
+builder.Services.AddCors(options => options.AddPolicy(name: policyName,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*").AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                                  }));
 
 
 var app = builder.Build();
@@ -42,6 +50,7 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseCors(policyName);
 
 app.MapControllers();
 
