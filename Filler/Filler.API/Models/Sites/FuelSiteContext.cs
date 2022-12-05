@@ -24,28 +24,34 @@ namespace Filler.API.Models.Sites
                     new Site { SiteId = 3, Latitude = 51.483875, Longitude = -0.000862, Name = "BP Trafalgar Road", NumberOfPumps = 12 }
                 );
 
-            builder.Entity<Pump>().HasData(new Pump { PumpId = 1, Number = 1, PumpSiteId = 1 },
-                    new Pump { PumpId = 2, Number = 2, PumpSiteId = 1 },
-                    new Pump { PumpId = 3, Number = 1, PumpSiteId = 2 },
-                    new Pump { PumpId = 4, Number = 2, PumpSiteId = 2 },
-                    new Pump { PumpId = 5, Number = 3, PumpSiteId = 2 },
-                    new Pump { PumpId = 6, Number = 4, PumpSiteId = 2 },
-                    new Pump { PumpId = 7, Number = 1, PumpSiteId = 3 },
-                    new Pump { PumpId = 8, Number = 2, PumpSiteId = 3 }
+            builder.Entity<Pump>().HasData(
+                    new Pump { PumpId = 1, Number = 1, SiteId = 1 },
+                    new Pump { PumpId = 2, Number = 2, SiteId = 1 },
+                    new Pump { PumpId = 3, Number = 1, SiteId = 2 },
+                    new Pump { PumpId = 4, Number = 2, SiteId = 2 },
+                    new Pump { PumpId = 5, Number = 3, SiteId = 2 },
+                    new Pump { PumpId = 6, Number = 4, SiteId = 2 },
+                    new Pump { PumpId = 7, Number = 1, SiteId = 3 },
+                    new Pump { PumpId = 8, Number = 2, SiteId = 3 }
                 );
 
-            builder.Entity<Pump>()
-                .HasOne(s => s.PumpSite);
 
             builder.Entity<Site>()
-                .HasMany(s => s.SitePumps)
-                .WithOne(p => p.PumpSite);
+               .HasOne<Site>()
+              .WithMany()
+              .HasForeignKey(p => p.SiteId);
+
+
+
+            
+
 
             builder.Entity<Receipt>()
                 .HasOne(p => p.UsedPump);
         }
 
     }
+
 
     public static class FuelSiteContextExtensions
     {
@@ -66,14 +72,14 @@ namespace Filler.API.Models.Sites
             if (!context.Pumps.Any())
             {
                 context.Pumps.AddRange(
-                    new Pump { PumpId = 1, Number = 1, PumpSiteId = 1 },
-                    new Pump { PumpId = 2, Number = 2, PumpSiteId = 1 },
-                    new Pump { PumpId = 3, Number = 1, PumpSiteId = 2 },
-                    new Pump { PumpId = 4, Number = 2, PumpSiteId = 2 },
-                    new Pump { PumpId = 5, Number = 3, PumpSiteId = 2 },
-                    new Pump { PumpId = 6, Number = 4, PumpSiteId = 2 },
-                    new Pump { PumpId = 7, Number = 1, PumpSiteId = 3 },
-                    new Pump { PumpId = 8, Number = 2, PumpSiteId = 3 }
+                    new Pump { PumpId = 1, Number = 1, SiteId = 1 },
+                    new Pump { PumpId = 2, Number = 2, SiteId = 1 },
+                    new Pump { PumpId = 3, Number = 1, SiteId = 2 },
+                    new Pump { PumpId = 4, Number = 2, SiteId = 2 },
+                    new Pump { PumpId = 5, Number = 3, SiteId = 2 },
+                    new Pump { PumpId = 6, Number = 4, SiteId = 2 },
+                    new Pump { PumpId = 7, Number = 1, SiteId = 3 },
+                    new Pump { PumpId = 8, Number = 2, SiteId = 3 }
                     );
                 context.SaveChanges();
             }

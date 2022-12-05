@@ -27,7 +27,8 @@ namespace Filler.API.Repositories
 
         public async Task<List<Pump>> GetPumpsAsync(int siteId)
         {
-            throw new NotImplementedException();
+            return await db.Pumps.Where(p => p.SiteId ==  siteId).ToListAsync().ConfigureAwait(false);
+
         }
 
         public async Task<Receipt> GetReceiptAsync(int receiptId)
@@ -40,9 +41,9 @@ namespace Filler.API.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<Site> GetSiteAsync(int siteId)
+        public async Task<Site?> GetSiteAsync(int siteId)
         {
-            throw new NotImplementedException();
+            return await db.Sites.FindAsync(siteId).ConfigureAwait(false);
         }
 
         public async Task<List<Site>> GetSitesAsync()

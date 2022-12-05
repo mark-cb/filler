@@ -37,7 +37,7 @@ namespace Filler.API.Controllers
         }
 
         // GET api/<FindSiteController>/int
-        [HttpGet("{id}")]
+        [HttpGet("{siteId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -45,7 +45,7 @@ namespace Filler.API.Controllers
         {
             // logging here Log.Info($"Starting {nameof(Get)}.);
 
-            Site site = await _fuelRepo.GetSiteAsync(siteId).ConfigureAwait(false);
+            Site? site = await _fuelRepo.GetSiteAsync(siteId).ConfigureAwait(false);
             if (site == null)
             {
                 return TypedResults.BadRequest<string>($"Site with {nameof(siteId)} {siteId} not found.");

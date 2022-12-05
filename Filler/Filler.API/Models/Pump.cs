@@ -8,7 +8,7 @@
 
         public bool UnLocked { get; set; }
 
-        public int PumpSiteId { get; set; }
-        public Site PumpSite { get; set; }
+        public int SiteId { get; set; }
+        public Site Site { get; set; }
     }
 }

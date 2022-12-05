@@ -2,7 +2,7 @@
 {
     public class Receipt
     {
-        public  int ReceiptId { get; set; }
+        public  int Id { get; set; }
 
         public FuelType FuelType { get; set; } 
 

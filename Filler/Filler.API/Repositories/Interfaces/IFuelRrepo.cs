@@ -5,7 +5,7 @@ namespace Filler.API.Repositories.Interfaces
     public interface IFuelRepo
     {
         public Task<List<Site>> GetSitesAsync();
-        public Task<Site> GetSiteAsync(int siteId);
+        public Task<Site?> GetSiteAsync(int siteId);
 
         public Task<List<Pump>> GetPumpsAsync(int siteId);
         public Task<Pump> GetPumpAsync(int pumpId);

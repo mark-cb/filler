@@ -25,7 +25,7 @@ namespace Filler.API.Models
         [JsonPropertyName("fuelCost")]
         public double FuelCost => 1.83;
 
-        public List<Pump> SitePumps { get; set; }
+        public List<Pump> Pumps { get; set; }
 
         
     }
